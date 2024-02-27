@@ -1,5 +1,4 @@
 import 'package:finder/core/utils/app_colors.dart';
-import 'package:finder/core/utils/app_router.dart';
 import 'package:finder/core/widgets/clipper_widget.dart';
 import 'package:finder/features/login/presentation/provider/login_provider.dart';
 import 'package:finder/features/login/presentation/widgets/login_forgot_password_link.dart';
