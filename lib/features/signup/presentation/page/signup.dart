@@ -1,5 +1,8 @@
 import 'package:finder/core/utils/app_colors.dart';
+import 'package:finder/core/widgets/clipper_widget.dart';
 import 'package:finder/features/signup/presentation/provider/signup_provider.dart';
+import 'package:finder/features/signup/presentation/widgets/signup_input_fields.dart';
+import 'package:finder/features/signup/presentation/widgets/signup_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,167 +16,60 @@ class SignUp extends StatelessWidget {
         builder: (context, child) {
           return Consumer<SignupProvider>(builder: (context, data, _) {
             return Scaffold(
+              backgroundColor: AppColors.white.withOpacity(0.99),
               body: SingleChildScrollView(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  height: MediaQuery.of(context).size.height - 50,
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          const SizedBox(height: 60.0),
+                child: Column(
+                  children: [
+                    const ClipperWidget(),
+                    Container(
+                      margin: const EdgeInsets.all(24),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Title
                           const Text(
                             "Sign up",
                             style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
+                                fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 32,
                           ),
-                          Text(
-                            "Create your account",
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey[700]),
-                          )
+                          //Input Fields
+                          const SignupInputFields(),
+                          const SizedBox(height: 42),
+                          //Signup Button
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  data.signupUser(context, data.getUserName(),
+                                      data.getEmail(), data.getPassword());
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 16),
+                                    backgroundColor: AppColors.primaryColor,
+                                    elevation: 5),
+                                child: const Text(
+                                  "Sign up",
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              )),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          //Login Navigation Button
+                          const SignupLoginButton()
                         ],
                       ),
-                      Column(
-                        children: <Widget>[
-                          TextField(
-                            controller: data.userNameController,
-                            decoration: InputDecoration(
-                                hintText: "Username",
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    borderSide: BorderSide.none),
-                                fillColor: AppColors.primaryColor.withOpacity(0.1),
-                                filled: true,
-                                prefixIcon: const Icon(Icons.person)),
-                          ),
-                          const SizedBox(height: 20),
-                          TextField(
-                            controller: data.emailController,
-                            decoration: InputDecoration(
-                                hintText: "Email",
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    borderSide: BorderSide.none),
-                                fillColor: AppColors.primaryColor.withOpacity(0.1),
-                                filled: true,
-                                prefixIcon: const Icon(Icons.email)),
-                          ),
-                          const SizedBox(height: 20),
-                          TextField(
-                            controller: data.passwordController,
-                            decoration: InputDecoration(
-                              hintText: "Password",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                  borderSide: BorderSide.none),
-                              fillColor: AppColors.primaryColor.withOpacity(0.1),
-                              filled: true,
-                              prefixIcon: const Icon(Icons.password),
-                            ),
-                            obscureText: true,
-                          ),
-                          const SizedBox(height: 20),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Confirm Password",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                  borderSide: BorderSide.none),
-                              fillColor: AppColors.primaryColor.withOpacity(0.1),
-                              filled: true,
-                              prefixIcon: const Icon(Icons.password),
-                            ),
-                            obscureText: true,
-                          ),
-                        ],
-                      ),
-                      Container(
-                          padding: const EdgeInsets.only(top: 3, left: 3),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              debugPrint('USERNAME ${data.getUserName()}, ${data.getEmail()}, ${data.getPassword()}');
-                              data.signupUser(data.getUserName(), data.getEmail(), data.getPassword());
-                            },
-                            style: ElevatedButton.styleFrom(
-                              shape: const StadiumBorder(),
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              backgroundColor: AppColors.primaryColor,
-                            ),
-                            child: const Text(
-                              "Sign up",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
-                            ),
-                          )),
-
-                      /*Container(
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(
-                      color: AppColors.primaryColor,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(0.5),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: const Offset(0, 1), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 30.0,
-                          width: 30.0,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image:   AssetImage('assets/images/login_signup/google.png'),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-
-                        const SizedBox(width: 18),
-
-                        const Text("Sign In with Google",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.primaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),*/
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text("Already have an account?"),
-                          TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                "Login",
-                                style: TextStyle(color: AppColors.primaryColor),
-                              ))
-                        ],
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             );

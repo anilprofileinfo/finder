@@ -4,6 +4,18 @@ import 'package:finder/features/login/domain/usecases/login_usecases.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier {
+
+  final userNameController = TextEditingController(text: 'finder11@gmail.com');
+  final passwordController = TextEditingController(text: 'Anil@123');
+
+  String getUserName(){
+    return userNameController.text;
+  }
+
+  String getPassword(){
+    return passwordController.text;
+  }
+
   final LoginUseCases _loginUseCases = LoginUseCases();
 
   late LoginEntity _users;

@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'finder',
-      theme: ThemeData(
-          primarySwatch: Colors
-              .deepOrange /*,scaffoldBackgroundColor: AppColors.scaffoldBackground*/),
       /*theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff5d0cc0)),
+          primarySwatch: Colors
+              .deepOrange,fontFamily: 'Play' *//*,scaffoldBackgroundColor: AppColors.scaffoldBackground*//*),*/
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),fontFamily: 'Play',
         useMaterial3: true,
-      ),*/
+      ),
 
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: splashRoute,

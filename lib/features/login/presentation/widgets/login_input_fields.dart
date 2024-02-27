@@ -13,42 +13,53 @@ class LoginInputFields extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "Username",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(48),
-                      borderSide: BorderSide.none),
-                  fillColor: AppColors.primaryColor.withOpacity(0.1),
-                  filled: true,
-                  prefixIcon: const Icon(Icons.person)),
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              // shadowColor: AppColors.primaryColor,
+              child: TextField(
+                controller: data.userNameController,
+                decoration: InputDecoration(
+                    hintText: "Username",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none),
+                    fillColor: AppColors.white,
+                    filled: true,
+                    prefixIcon: const Icon(Icons.person_outline_rounded)),
+              ),
             ),
             const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Password",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(48),
-                    borderSide: BorderSide.none
+            Material(
+              elevation: 6,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              // shadowColor: AppColors.primaryColor,
+              child: TextField(
+                controller: data.passwordController,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none),
+                  fillColor: AppColors.white,
+                  filled: true,
+                  prefixIcon: const Icon(Icons.lock_outline_rounded),
                 ),
-                fillColor: AppColors.primaryColor.withOpacity(0.1),
-                filled: true,
-                prefixIcon: const Icon(Icons.password),
+                obscureText: true,
               ),
-              obscureText: true,
             ),
-            const SizedBox(height: 36),
+            const SizedBox(height: 42),
             ElevatedButton(
               onPressed: () {
-                data.loginUser(context, 'finder11@gmail.com', 'Anil@123');
+                data.loginUser(context, data.getUserName(), data.getPassword());
               },
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(48.0),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                backgroundColor: AppColors.primaryColor,
-              ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  backgroundColor: AppColors.primaryColor,
+                  elevation: 5),
               child: const Text(
                 "Sign in",
                 style: TextStyle(fontSize: 20, color: Colors.white),

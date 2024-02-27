@@ -11,29 +11,51 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 1800),
+    vsync: this,
+  )..forward();
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.fastOutSlowIn,
+  );
+
   @override
   void initState() {
     super.initState();
     Timer(
-      const Duration(milliseconds: 1500),
+      const Duration(seconds: 2),
       () =>
           Navigator.pushNamedAndRemoveUntil(context, loginRoute, (r) => false),
     );
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.white,
+    return Scaffold(
       body: Center(
-        child: Text(
-          "finder",
-          style: TextStyle(
-            fontFamily: 'Pacifico',
-            fontSize: 48.0,
-            color: AppColors.primaryColor,
-            fontWeight: FontWeight.bold,
+        child: ScaleTransition(
+          scale: _animation,
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(
+              child: Text(
+                "finder",
+                style: TextStyle(
+                  fontFamily: 'Pacifico',
+                  fontSize: 62.0,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ),
           ),
         ),
       ),

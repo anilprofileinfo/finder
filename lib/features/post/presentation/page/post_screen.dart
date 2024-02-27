@@ -16,6 +16,7 @@ class PostScreen extends StatelessWidget {
       create: (_) => PostNotifier(),
       child: Consumer<PostNotifier>(
         builder: (context, notifier, child) => Scaffold(
+          backgroundColor: Colors.white,
           resizeToAvoidBottomInset: true,
           body: SafeArea(
             top: true,
@@ -67,11 +68,11 @@ class PostScreen extends StatelessWidget {
                     child: TextFormField(
                       controller: notifier.placeTextController,
                       decoration: InputDecoration(
-                        hintText: 'Enter city',
+                        labelText: 'Enter city',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(18),
                             borderSide: BorderSide.none),
-                        // fillColor: AppColors.primaryColor.withOpacity(0.1),
+                        fillColor: AppColors.primaryColor.withOpacity(0.1),
                         filled: true,
                       ),
                     ),
@@ -106,7 +107,7 @@ class PostScreen extends StatelessWidget {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(18),
                               borderSide: BorderSide.none),
-                          // fillColor: AppColors.primaryColor.withOpacity(0.1),
+                          fillColor: AppColors.primaryColor.withOpacity(0.1),
                           filled: true,
                         ),
                         textInputAction: TextInputAction.newline,
