@@ -90,7 +90,7 @@ class PostFood extends StatelessWidget {
                       padding: EdgeInsets.only(left: 8.0, right: 8.0),
                       child: Divider(
                         height: 1,
-                        color: AppColors.primaryColorLight,
+                        color: AppColors.separator,
                       ),
                     );
                   },

@@ -16,7 +16,7 @@ class PostScreen extends StatelessWidget {
       create: (_) => PostNotifier(),
       child: Consumer<PostNotifier>(
         builder: (context, notifier, child) => Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.white,
           resizeToAvoidBottomInset: true,
           body: SafeArea(
             top: true,
@@ -55,26 +55,17 @@ class PostScreen extends StatelessWidget {
                   ///Enter Place
                   Container(
                     margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
-                    /*decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black26,
-                          spreadRadius: 0.1,
-                          blurRadius: 0.2,
-                        ),
-                      ],
-                    ),*/
                     child: TextFormField(
                       controller: notifier.placeTextController,
                       decoration: InputDecoration(
-                        labelText: 'Enter city',
+                        hintText: 'Enter city',
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
+                            borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none),
-                        fillColor: AppColors.primaryColor.withOpacity(0.1),
+                        fillColor: AppColors.primaryColor.withOpacity(0.2),
                         filled: true,
                       ),
+                      style: const TextStyle(color: AppColors.black),
                     ),
                   ),
 
@@ -105,11 +96,12 @@ class PostScreen extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: 'Add your travel experience',
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
+                              borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide.none),
-                          fillColor: AppColors.primaryColor.withOpacity(0.1),
+                          fillColor: AppColors.primaryColor.withOpacity(0.2),
                           filled: true,
                         ),
+                        style: const TextStyle(color: AppColors.black),
                         textInputAction: TextInputAction.newline,
                         keyboardType: TextInputType.multiline,
                         maxLines: 7,

@@ -25,6 +25,7 @@ class StoriesList extends StatelessWidget {
 
     return Consumer<HomeProvider>(builder: (context, data, _) {
       return ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: data.listData.length,
         itemBuilder: (context, index) {
@@ -32,14 +33,18 @@ class StoriesList extends StatelessWidget {
           //List Item
           return Container(
             margin: const EdgeInsets.only(
-                top: listViewMargin,
+                top: 16,
                 left: listViewMargin,
                 right: listViewMargin),
             padding: const EdgeInsets.all(listTilePadding),
             decoration: const BoxDecoration(
                 color: AppColors.white,
                 borderRadius:
-                    BorderRadius.all(Radius.circular(listTileCornerRadius))),
+                    BorderRadius.all(Radius.circular(listTileCornerRadius)),
+                boxShadow: [
+                  BoxShadow(color: Color(0x99000000),blurStyle: BlurStyle.normal,offset: Offset(0.5, 0.5)),
+                ],
+            ),
             child: Column(
               children: [
                 //Post Image with Location and Report buttons

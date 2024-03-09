@@ -18,7 +18,7 @@ class AppRouter {
       case splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case loginRoute:
-        return MaterialPageRoute(builder: (_) =>  Login());
+        return MaterialPageRoute(builder: (_) =>  const Login());
       case signupRoute:
         return MaterialPageRoute(builder: (_) => const SignUp());
       case dashboardRoute:
@@ -26,7 +26,7 @@ class AppRouter {
       case postRoute:
         return MaterialPageRoute(builder: (_) => const PostScreen());
       default:
-        return MaterialPageRoute(builder: (_) =>  Login());
+        return MaterialPageRoute(builder: (_) =>  const Login());
     }
   }
 }
