@@ -11,11 +11,11 @@ class ClipperWidget extends StatelessWidget {
       //upper clippath with less height
       clipper: WaveClipper(), //set our custom wave clipper.
       child: Container(
-        padding: EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.only(bottom: 20),
         color: AppColors.primaryColor,
         height: MediaQuery.of(context).size.height/3,
         alignment: Alignment.center,
-        child: Text(
+        child: const Text(
           "finder",
           style: TextStyle(
             fontFamily: 'Pacifico',

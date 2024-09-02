@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:finder/features/home/domain/entities/stories_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +6,10 @@ class HomeProvider extends ChangeNotifier {
     "data": [
       {
         "id": "abc123",
-        "location": "Goa",
+        "location": "New York",
+        "liked": false,
         "description":
-            "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+            "The Port Authority of New York and New Jersey is enhancing the food and dining options at Newark Liberty International Airport’s new Terminal A with the addition of the Guy Fieri’s Flavortown Kitchen + Bar, operated by SSP America, a division of SSP Group.",
         "images": [
           "https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           "https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -34,8 +33,9 @@ class HomeProvider extends ChangeNotifier {
       {
         "id": "abc1234",
         "location": "Goa",
+        "liked": false,
         "description":
-            "A beautiful place to vist, cool beaches and vintage streets",
+            "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
         "images": [
           "https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           "https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -57,7 +57,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc12345",
-        "location": "Goa",
+        "location": "Paris",
+        "liked": true,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -80,14 +81,11 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc123456",
-        "location": "Goa",
+        "location": "Cabo de rama",
+        "liked": false,
         "description":
-            "A beautiful place to vist, cool beaches and vintage streets",
-        "images": [
-          "https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          "https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          "https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        ],
+            "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+        "images": [],
         "hotels": [
           {"hotelName": "Baga Resort", "hotelLocation": "Near Baga Beach"},
           {"hotelName": "Palolem Resort", "hotelLocation": "Near Baga Beach"}
@@ -105,7 +103,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc1234567",
-        "location": "Goa",
+        "location": "Sri Lanka",
+        "liked": true,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -129,7 +128,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc12345678",
-        "location": "Goa",
+        "location": "Maldives",
+        "liked": true,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -152,7 +152,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc123456789",
-        "location": "Goa",
+        "location": "Canada",
+        "liked": false,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -177,7 +178,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc1234567890",
-        "location": "Goa",
+        "location": "Agra",
+        "liked": false,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -202,7 +204,8 @@ class HomeProvider extends ChangeNotifier {
       },
       {
         "id": "abc01223456789",
-        "location": "Goa",
+        "location": "Kerala",
+        "liked": false,
         "description":
             "A beautiful place to vist, cool beaches and vintage streets",
         "images": [
@@ -243,16 +246,14 @@ class HomeProvider extends ChangeNotifier {
 
   List<Data> get listData => _listData;
 
-
-  HomeProvider(){
+  HomeProvider() {
     fetchStories();
   }
 
-  void fetchStories(){
+  void fetchStories() {
     StoriesEntity storiesEntity = StoriesEntity.fromJson(data);
     debugPrint('postsTest ${storiesEntity.data!.length}');
     _listData.addAll(storiesEntity.data!);
     notifyListeners();
   }
-
 }

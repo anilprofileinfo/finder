@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
         return Consumer<HomeProvider>(
           builder: (context, data, _) {
             return Scaffold(
-              backgroundColor: AppColors.appbarColor,
+              backgroundColor: AppColors.white,
               //Used for scroll AppBar on swipe
               body:SingleChildScrollView(
                 child: Column(

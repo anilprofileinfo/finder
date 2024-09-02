@@ -9,6 +9,18 @@ import 'package:provider/provider.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({super.key});
+// suggesstion list
+  static const List<String> _fruitOptions = <String>[
+    'apple',
+    'banana',
+    'orange',
+    'mango',
+    'grapes',
+    'watermelon',
+    'kiwi',
+    'strawberry',
+    'sugarcane',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +65,7 @@ class PostScreen extends StatelessWidget {
                   ),
 
                   ///Enter Place
-                  Container(
+                  /*Container(
                     margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
                     child: TextFormField(
                       controller: notifier.placeTextController,
@@ -66,6 +78,33 @@ class PostScreen extends StatelessWidget {
                         filled: true,
                       ),
                       style: const TextStyle(color: AppColors.black),
+                    ),
+                  ),*/
+                  // Auto complete widget
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0,right: 16.0),
+                    child: Autocomplete<String>(
+
+                      optionsBuilder: (TextEditingValue fruitTextEditingValue) {
+
+                        // if user is input nothing
+                        if (fruitTextEditingValue.text == '') {
+                          return const Iterable<String>.empty();
+                        }
+
+                        // if user is input something the build
+                        // suggestion based on the user input
+                        return _fruitOptions.where((String option) {
+                          return option
+                              .contains(fruitTextEditingValue.text.toLowerCase());
+                        });
+                      },
+
+                      // when user click on the suggested
+                      // item this function calls
+                      onSelected: (String value) {
+                        debugPrint('You just selected $value');
+                      },
                     ),
                   ),
 
@@ -91,20 +130,20 @@ class PostScreen extends StatelessWidget {
                           ),
                         ],
                       ),*/
-                      child: TextFormField(
+                      child: TextField(
                         controller: notifier.descriptionTextController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Add your travel experience',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none),
-                          fillColor: AppColors.primaryColor.withOpacity(0.2),
-                          filled: true,
+                          // border: OutlineInputBorder(
+                          //     borderRadius: BorderRadius.circular(8),
+                          //     borderSide: BorderSide.none),
+                          // fillColor: AppColors.primaryColor.withOpacity(0.2),
+                          // filled: true,
                         ),
                         style: const TextStyle(color: AppColors.black),
                         textInputAction: TextInputAction.newline,
                         keyboardType: TextInputType.multiline,
-                        maxLines: 7,
+                        // maxLines: 7,
                       ),
                     ),
                   ),

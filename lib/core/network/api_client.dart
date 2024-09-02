@@ -38,7 +38,7 @@ class ApiClient {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode({
-        'name':userName,
+        'name': userName,
         'email': email,
         'password': password,
       }),
@@ -186,3 +186,61 @@ dynamic _returnResponse(http.Response response) {
       throw Exception('Failed to delete post: $postId');
     }
   }*/
+
+/*class ApiService {
+  final String baseUrl;
+
+  ApiService(this.baseUrl);
+
+  // Common method to handle GET requests
+  Future<Map<String, dynamic>> get(String endpoint, {Map<String, String>? headers}) async {
+    final url = Uri.parse('$baseUrl$endpoint');
+    final response = await http.get(url, headers: headers);
+
+    return _processResponse(response);
+  }
+
+  // Common method to handle POST requests
+  Future<Map<String, dynamic>> post(String endpoint, {Map<String, String>? headers, Object? body}) async {
+    final url = Uri.parse('$baseUrl$endpoint');
+    final response = await http.post(
+      url,
+      headers: headers ?? {'Content-Type': 'application/json'},
+      body: body != null ? jsonEncode(body) : null,
+    );
+
+    return _processResponse(response);
+  }
+
+  // Common method to handle PUT requests
+  Future<Map<String, dynamic>> put(String endpoint, {Map<String, String>? headers, Object? body}) async {
+    final url = Uri.parse('$baseUrl$endpoint');
+    final response = await http.put(
+      url,
+      headers: headers ?? {'Content-Type': 'application/json'},
+      body: body != null ? jsonEncode(body) : null,
+    );
+
+    return _processResponse(response);
+  }
+
+  // Common method to handle DELETE requests
+  Future<Map<String, dynamic>> delete(String endpoint, {Map<String, String>? headers}) async {
+    final url = Uri.parse('$baseUrl$endpoint');
+    final response = await http.delete(url, headers: headers);
+
+    return _processResponse(response);
+  }
+
+  // Process the HTTP response and return a Map
+  Map<String, dynamic> _processResponse(http.Response response) {
+    final int statusCode = response.statusCode;
+    if (statusCode >= 200 && statusCode < 300) {
+      // Assuming the response body is JSON
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    } else {
+      // Handle errors or unsuccessful responses
+      throw Exception('Failed to load data: ${response.reasonPhrase}');
+    }
+  }
+}*/

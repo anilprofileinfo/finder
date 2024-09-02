@@ -15,8 +15,9 @@ class AppColors{
   static const scaffoldBackground = Color(0xFFe9eaec);
   static const separator = Color(0xFFe8e8e8);
   static const whiteTransparent = Color(0x32000000);
+  static const textDesc = Color(0xFF898989);
+  static const tailText = Color(0xFFbbbbbb);
 
-  static const appbarColor = Color(0xFFFFF8F8);
 
 
 }

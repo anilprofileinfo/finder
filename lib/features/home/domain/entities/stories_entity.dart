@@ -116,6 +116,7 @@ class Data {
   Data({
     String? id,
     String? location,
+    bool? liked,
     String? description,
     List<String>? images,
     List<Hotels>? hotels,
@@ -125,6 +126,7 @@ class Data {
   }) {
     _id = id;
     _location = location;
+    _liked = liked;
     _description = description;
     _images = images;
     _hotels = hotels;
@@ -136,6 +138,7 @@ class Data {
   Data.fromJson(dynamic json) {
     _id = json['id'];
     _location = json['location'];
+    _liked = json['liked'];
     _description = json['description'];
     _images = json['images'] != null ? json['images'].cast<String>() : [];
     if (json['hotels'] != null) {
@@ -156,6 +159,7 @@ class Data {
 
   String? _id;
   String? _location;
+  bool? _liked;
   String? _description;
   List<String>? _images;
   List<Hotels>? _hotels;
@@ -166,6 +170,7 @@ class Data {
   Data copyWith({
     String? id,
     String? location,
+    bool? liked,
     String? description,
     List<String>? images,
     List<Hotels>? hotels,
@@ -176,6 +181,7 @@ class Data {
       Data(
         id: id ?? _id,
         location: location ?? _location,
+        liked: liked ?? _liked,
         description: description ?? _description,
         images: images ?? _images,
         hotels: hotels ?? _hotels,
@@ -187,6 +193,8 @@ class Data {
   String? get id => _id;
 
   String? get location => _location;
+
+  bool? get liked => _liked;
 
   String? get description => _description;
 
@@ -204,6 +212,7 @@ class Data {
     final map = <String, dynamic>{};
     map['id'] = _id;
     map['location'] = _location;
+    map['liked'] = _liked;
     map['description'] = _description;
     map['images'] = _images;
     if (_hotels != null) {

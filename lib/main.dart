@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
       title: 'finder',
       /*theme: ThemeData(
           primarySwatch: Colors
-              .deepOrange,fontFamily: 'Play' *//*,scaffoldBackgroundColor: AppColors.scaffoldBackground*//*),*/
+              .deepOrange,fontFamily: 'Play' */ /*,scaffoldBackgroundColor: AppColors.scaffoldBackground*/ /*),*/
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),fontFamily: 'Play',
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        fontFamily: 'Play',
         useMaterial3: true,
       ),
-
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: splashRoute,
     );
